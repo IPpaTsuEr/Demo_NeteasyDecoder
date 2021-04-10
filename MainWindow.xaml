@@ -1,0 +1,52 @@
+﻿<Window x:Class="NeteasyDecoder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NeteasyDecoder"
+        mc:Ignorable="d"
+        Title="网易云歌曲缓存解密" Height="450" Width="800">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding DataContext.SelectedInputPath}" 
+                       VerticalAlignment="Center" />
+            <Button Grid.Column="1" Click="Button_Click_1"
+                    Height="32" Width="64">源文件</Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding  DataContext.SelectedOutputPath}"
+                       VerticalAlignment="Center"/>
+            <Button Grid.Column="1" Click="Button_Click"
+                    Height="32" Width="64">输出到</Button>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox Content="自动解析歌曲名"  Height="28" Margin="10,10,0,0" IsChecked="{Binding  DataContext.AutoRename}"/>
+            <Button Grid.Column="2" Content="开始" Width="64"  Click="Button_Click_2"/>
+        </Grid>
+
+        <TextBox Grid.Row="3" Background="White" Text="{Binding  DataContext.ProcessingInfos}" 
+                 BorderThickness="1" BorderBrush="Gray" Margin="2"
+                 TextWrapping="WrapWithOverflow" AcceptsReturn="True" AcceptsTab="True">
+            
+        </TextBox>
+    </Grid>
+</Window>
